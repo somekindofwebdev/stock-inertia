@@ -17,22 +17,43 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
+    return Inertia::render('Births', [
+        'animal' => 'sheep',
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/births', function () {
+    return Inertia::render('Births', [
+        'animal' => 'sheep',
+    ]);
+});
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+Route::get('/deaths', function () {
+    return Inertia::render('Deaths', [
+        'animal' => 'sheep',
+    ]);
+});
+
+
+Route::get('/inventory', function () {
+    return Inertia::render('Inventory', [
+        'animal' => 'sheep',
+    ]);
+});
+
+
+Route::get('/movements', function () {
+    return Inertia::render('Movements', [
+        'animal' => 'sheep',
+    ]);
+});
+
+
+Route::get('/tags', function () {
+    return Inertia::render('Tags', [
+        'animal' => 'sheep',
+    ]);
 });
 
 require __DIR__.'/auth.php';
