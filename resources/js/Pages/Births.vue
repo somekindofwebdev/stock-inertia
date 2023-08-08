@@ -9,7 +9,7 @@
 import Layout from '@/Layouts/Layout.vue';
     
 export default {
-    components: { Layout },
+    layout: Layout,
     props: {
         animal: String
     }
