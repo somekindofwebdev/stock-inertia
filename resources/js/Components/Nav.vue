@@ -1,11 +1,8 @@
 <template>
-    <ul>
-        <li><Link href="/births">Births</Link></li>
-        <li><Link href="/deaths">Deaths</Link></li>
-        <li><Link href="/movements">Movements</Link></li>
-        <li><Link href="/tags">Tags</Link></li>
-        <li><Link href="/inventory">Inventory</Link></li>
-        
+    <ul class="flex">
+        <li v-for="(url, text) in links" class="mx-10 my-4">
+            <Link :href="url">{{ text }}</Link>
+        </li>
     </ul>
 </template>
 
@@ -13,5 +10,16 @@
 import { Link } from '@inertiajs/vue3';
 export default {
     components: { Link },
+    data() {
+        return {
+            links: {
+                'Births': 'births',
+                'Deaths': 'deaths',
+                'Movements': 'movements',
+                'Tags': 'tags',
+                'Inventory': 'inventory',
+            }
+        }
+    }
 };
 </script>
