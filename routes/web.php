@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BirthsController;
+use App\Http\Controllers\DeathsController;
+use App\Http\Controllers\MovementsController;
+use App\Http\Controllers\TagsController;
+use App\Http\Controllers\InventoryController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -16,44 +21,25 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Births', [
-        'animal' => 'sheep',
-    ]);
+Route::controller(BirthsController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/births', 'index');
 });
 
-Route::get('/births', function () {
-    return Inertia::render('Births', [
-        'animal' => 'sheep',
-    ]);
+Route::controller(DeathsController::class)->group(function () {
+    Route::get('/deaths', 'index');
 });
 
-
-Route::get('/deaths', function () {
-    return Inertia::render('Deaths', [
-        'animal' => 'sheep',
-    ]);
+Route::controller(MovementsController::class)->group(function () {
+    Route::get('/movements', 'index');
 });
 
-
-Route::get('/inventory', function () {
-    return Inertia::render('Inventory', [
-        'animal' => 'sheep',
-    ]);
+Route::controller(TagsController::class)->group(function () {
+    Route::get('/tags', 'index');
 });
 
-
-Route::get('/movements', function () {
-    return Inertia::render('Movements', [
-        'animal' => 'sheep',
-    ]);
-});
-
-
-Route::get('/tags', function () {
-    return Inertia::render('Tags', [
-        'animal' => 'sheep',
-    ]);
+Route::controller(InventoryController::class)->group(function () {
+    Route::get('/inventory', 'index');
 });
 
 require __DIR__.'/auth.php';
