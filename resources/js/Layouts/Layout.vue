@@ -1,6 +1,6 @@
 <template>
     <Nav />
-    <div class="mx-6">
+    <div class="mx-10">
         <slot />
     </div>
 </template>
