@@ -1,6 +1,8 @@
 <template>
     <Nav />
-    <slot />
+    <div class="mx-6">
+        <slot />
+    </div>
 </template>
 
 <script>

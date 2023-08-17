@@ -1,5 +1,5 @@
 <template>
-    <header>Births</header>
+    <header class="font-bold text-xl">Births</header>
     <p>{{ animal }}</p>
 </template>
 

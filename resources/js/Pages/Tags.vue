@@ -1,5 +1,5 @@
 <template>
-    <header>Tags</header>
+    <header class="font-bold text-xl">Tags</header>
     <p>{{ animal }}</p>
 </template>
 
