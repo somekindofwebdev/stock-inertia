@@ -13,6 +13,7 @@ export default {
     data() {
         return {
             links: {
+                'Animals': 'animals',
                 'Births': 'births',
                 'Deaths': 'deaths',
                 'Movements': 'movements',

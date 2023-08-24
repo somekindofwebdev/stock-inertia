@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AnimalsController;
 use App\Http\Controllers\BirthsController;
 use App\Http\Controllers\DeathsController;
 use App\Http\Controllers\MovementsController;
@@ -21,8 +22,12 @@ use Inertia\Inertia;
 |
 */
 
-Route::controller(BirthsController::class)->group(function () {
+Route::controller(AnimalsController::class)->group(function () {
     Route::get('/', 'index');
+    Route::get('/animals', 'index');
+});
+
+Route::controller(BirthsController::class)->group(function () {
     Route::get('/births', 'index');
 });
 
