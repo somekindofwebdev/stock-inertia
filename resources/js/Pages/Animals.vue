@@ -12,8 +12,8 @@
         <tbody>
             <tr v-for="animal in animals">
                 <td class="p-4">{{ animal.id }}</td>
-                <td class="p-4" v-if="editing == animal.id"><TextInput v-model="animal.date_of_identification"></TextInput></td>
-                <td class="p-4" @click="editing = animal.id" v-else>{{ animal.identification_date }}</td>
+                <td class="p-4" v-if="editing == animal.id"><EditableTextInput v-model="animal.date_of_identification"></EditableTextInput></td>
+
                 <td class="p-4" v-if="editing == animal.id"><TextInput v-model="animal.genotype"></TextInput></td>
                 <td class="p-4" @click="editing = animal.id" v-else>{{ animal.genotype }}</td>
                 <td class="p-4" v-if="editing == animal.id"><TextInput v-model="animal.breed"></TextInput></td>
@@ -30,14 +30,14 @@
 </template>
 
 <script setup>
-    
+
 import TextInput from '../Components/TextInput.vue';
-    
+
 const props = defineProps({
         animals: Array,
         editing: Number
     });
-    
+
 function saveRow() {
     this.editing = null;
 }
