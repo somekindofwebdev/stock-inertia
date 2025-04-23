@@ -13,7 +13,7 @@
         <tbody>
             <tr v-for="animal in animals">
                 <td class="p-4">{{ animal.id }}</td>
-                <td class="p-4"></td>
+                <td class="p-4">{{ animal.identification_date }}</td>
                 <td class="p-4">{{ animal.breed.genotype.genotype }}</td>
                 <td class="p-4">{{ animal.breed.breed }}</td>
                 <td class="p-4">{{ animal.tag.tag_no }}</td>
