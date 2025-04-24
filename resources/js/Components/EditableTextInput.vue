@@ -1,40 +1,50 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { ref, watch, nextTick } from 'vue';
 
-defineProps({
-    modelValue: {
-        type: String,
-        required: true,
-    },
+const props = defineProps({
+    modelValue: String,
 });
 
-defineEmits(['update:modelValue']);
+const emit = defineEmits(['update:modelValue']);
 
-const input = ref(null);
 const editing = ref(false);
+const editableValue = ref(props.modelValue);
 
-onMounted(() => {
-    if (input.value.hasAttribute('autofocus')) {
-        input.value.focus();
-    }
-});
+watch(() => props.modelValue, (newValue) => {
+    if (!editing.value) editableValue.value = newValue;
+})
 
-function editValue () {
+const inputRef = ref(null);
+
+function edit () {
+    editableValue.value = props.modelValue;
     editing.value = true;
+    nextTick(() => {
+      inputRef.value?.focus()
+    })
 }
 
-defineExpose({ focus: () => input.value.focus() });
+function save() {
+    emit('update:modelValue', editableValue.value);
+    editing.value = false;
+}
+
+function cancel() {
+    editableValue.value = props.modelValue;
+    editing.value = false;
+}
 </script>
 
 <template>
-    <span v-if="!editing">{{ modelValue }}</span>
+    <span v-if="!editing" @click="edit">{{ modelValue }}</span>
     <input
-        v-if="editing"
+        v-else
         class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
-        :value="modelValue"
-        :placeholder="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)"
-        @click="editValue"
+        v-model="editableValue"
+        :placeholder="editableValue"
+        @blur="save"
+        @keydown.enter="save"
+        @keydown.esc="cancel"
         ref="input"
     />
 </template>

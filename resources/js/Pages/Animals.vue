@@ -14,7 +14,7 @@
             <tr v-for="animal in animals">
                 <td class="p-4">{{ animal.id }}</td>
                 <td class="p-4">{{ animal.identification_date }}</td>
-                <td class="p-4">{{ animal.breed.genotype.genotype }}</td>
+                <td class="p-4"><EditableTextInput v-model="animal.breed.genotype.genotype" /></td>
                 <td class="p-4">{{ animal.breed.breed }}</td>
                 <td class="p-4">{{ animal.tag.tag_no }}</td>
             </tr>
@@ -24,15 +24,14 @@
 
 <script setup>
 
-import TextInput from '../Components/TextInput.vue';
+import EditableTextInput from '../Components/EditableTextInput.vue';
 
 const props = defineProps({
         animals: Array,
-        editing: Number
     });
 
-function saveRow() {
-    this.editing = null;
+function saveTable() {
+    console.log('This is where we write to the db');
 }
 
 </script>
