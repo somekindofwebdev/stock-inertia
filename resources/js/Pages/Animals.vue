@@ -1,6 +1,6 @@
 <template>
     <header class="font-bold text-xl">Animals</header>
-    <table class="mx-auto mt-8 border-separate border-spacing-0 overflow-hidden border-4 border-solid border-indigo-600 bg-slate-800 rounded-xl">
+    <table class="mx-auto mt-8 border-separate border-spacing-0 overflow-hidden border-4 border-solid border-indigo-600 bg-slate-800 rounded-xl w-3/4 text-center">
         <thead>
             <tr class="bg-slate-900">
                 <th class="p-4">ID</th>
