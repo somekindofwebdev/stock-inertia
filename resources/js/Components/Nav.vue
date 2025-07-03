@@ -1,6 +1,7 @@
 <template>
-    <ul class="flex bg-slate-900">
-        <li v-for="(url, text) in links" class="mx-10 my-4 font-sans hover:font-semibold">
+    <ul class="flex bg-slate-900 justify-around">
+        <li class="size-full">Logo</li>
+        <li v-for="(url, text) in links" class="px-10 py-4 font-sans hover:font-semibold size-full">
             <Link :href="url">{{ text }}</Link>
         </li>
     </ul>
