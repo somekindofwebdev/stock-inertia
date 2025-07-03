@@ -1,5 +1,5 @@
 <template>
-    <ul class="flex bg-slate-800 text-slate-100">
+    <ul class="flex bg-slate-900">
         <li v-for="(url, text) in links" class="mx-10 my-4 font-sans hover:font-semibold">
             <Link :href="url">{{ text }}</Link>
         </li>

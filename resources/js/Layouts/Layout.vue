@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-    
+
 import Nav from '@/Components/Nav.vue';
-    
+
 </script>

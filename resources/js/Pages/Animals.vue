@@ -1,8 +1,8 @@
 <template>
     <header class="font-bold text-xl">Animals</header>
-    <table>
+    <table class="mx-auto mt-8 border-separate border-spacing-0 overflow-hidden border-4 border-solid border-indigo-600 bg-slate-800 rounded-xl">
         <thead>
-            <tr>
+            <tr class="bg-slate-900">
                 <th class="p-4">ID</th>
                 <th class="p-4">Date of Identification</th>
                 <th class="p-4">Genotype</th>
