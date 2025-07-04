@@ -11,7 +11,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="animal in animals" class=" hover:bg-slate-700">
+            <tr v-for="animal in animals" class=" hover:bg-slate-600">
                 <td class="p-4">{{ animal.id }}</td>
                 <td class="p-4">{{ animal.identification_date }}</td>
                 <td class="p-4"><EditableTextInput v-model="animal.breed.genotype.genotype" /></td>
